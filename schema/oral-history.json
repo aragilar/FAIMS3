@@ -1,0 +1,252 @@
+{
+    "$import": {
+        "faims": "file:///faims.json"
+    },
+    "definitions": {
+        "Interview": {
+            "type": "object",
+            "properties": {
+                "interviewer": {
+                    "$ref": "Interviewer"
+                },
+                "location": {
+                    "$ref": "Location"
+                },
+                "interview-time": {
+                    "$ref": "InterviewTime"
+                },
+                "recording": {
+                    "$ref": "Recording"
+                },
+                "participant": {
+                    "$ref": "Participant"
+                }
+            }
+        },
+        "Interviewer": {
+            "$ref": "faims:FAIMSUser"
+        },
+        "Location": {
+            "$ref": "faims:GPSPosition"
+        },
+        "InterviewTime": {
+            "type": "object",
+            "properties": {
+                "start_time": {
+                    "$ref": "faims:DateTime"
+                },
+                "end_time": {
+                    "$ref": "faims:DateTime"
+                }
+            }
+        },
+        "Recording": {
+            "$ref": "faims:AudioRecording"
+        },
+        "Participant": {
+            "type": "object",
+            "properties": {
+                "notes": {"$ref": "faims:Notes"},
+                "participant-details": {
+                    "$ref": "ParticipantDetails"
+                },
+                "interview-qa": {
+                    "$ref": "InterviewQA"
+                }
+            }
+        },
+        "ParticipantDetails": {
+            "type": "object",
+            "properties": {
+                "name": {"$ref": "faims:Name"},
+                "gender": {"$ref": "faims:Gender"},
+                "consent-form": {"$ref": "faims:ConsentForm"}
+            }
+        },
+        "InterviewQA": {
+            "type": "object",
+            "properties": {
+                "mother": {
+                    "$ref": "MotherDetails"
+                },
+                "father": {
+                    "$ref": "FatherDetails"
+                },
+                "parent-location": {
+                    "$ref": "ParentLocation"
+                },
+                "birth-location": {
+                    "$ref": "BirthLocation"
+                },
+                "education": {
+                    "$ref": "Education"
+                },
+                "occupation": {
+                    "type": "string"
+                },
+                "discrimination": {
+                    "type": "str",
+                    "enum": [
+                        "Yes",
+                        "No",
+                        "N/A"
+                    ]
+                }
+            }
+        },
+        "MotherDetails": {
+            "type": "object",
+            "properties": {
+                "birth-region": {
+                    "type": "str",
+                    "enum": [
+                        "Thrace",
+                        "Macedonia",
+                        "Thessaly",
+                        "Epirus",
+                        "Central Greece",
+                        "Peloponnese",
+                        "Aegean Islands",
+                        "Ionian Island",
+                        "Crete",
+                        "Outside of Greece",
+                        "Non-Greek"
+                    ]
+                },
+                "birth-village": {
+                    "type": "str"
+                },
+                "did-migrate": {
+                    "type": "str",
+                    "enum": [
+                        "Yes",
+                        "No",
+                        "Other"
+                    ]
+                },
+                "migration-time": {
+                    "type": "str"
+                },
+                "had-occupation": {
+                    "type": "str",
+                    "enum": [
+                        "Yes",
+                        "No",
+                        "N/A"
+                    ]
+                },
+                "occupation": {
+                    "type": "str"
+                }
+            }
+        },
+        "FatherDetails": {
+            "type": "object",
+            "properties": {
+                "birth-region": {
+                    "type": "str",
+                    "enum": [
+                        "Thrace",
+                        "Macedonia",
+                        "Thessaly",
+                        "Epirus",
+                        "Central Greece",
+                        "Peloponnese",
+                        "Aegean Islands",
+                        "Ionian Island",
+                        "Crete",
+                        "Outside of Greece",
+                        "Non-Greek"
+                    ]
+                },
+                "birth-village": {
+                    "type": "str"
+                },
+                "did-migrate": {
+                    "type": "str",
+                    "enum": [
+                        "Yes",
+                        "No",
+                        "Other"
+                    ]
+                },
+                "migration-time": {
+                    "type": "str"
+                },
+                "occupation": {
+                    "type": "str"
+                }
+            }
+        },
+        "ParentLocation": {
+            "type": "object",
+            "properties": {
+                "state": {
+                    "type": "str",
+                    "enum": [
+                        "ACT",
+                        "NSW",
+                        "NT",
+                        "QLD",
+                        "SA",
+                        "TAS",
+                        "VIC",
+                        "WA",
+                        "Other"
+                    ]
+                },
+                "city": {
+                    "type": "str"
+                }
+            }
+        },
+        "BirthLocation": {
+            "type": "object",
+            "properties": {
+                "state": {
+                    "type": "str",
+                    "enum": [
+                        "ACT",
+                        "NSW",
+                        "NT",
+                        "QLD",
+                        "SA",
+                        "TAS",
+                        "VIC",
+                        "WA",
+                        "Other"
+                    ]
+                },
+                "city": {
+                    "type": "str"
+                }
+            }
+        },
+        "Education": {
+            "type": "object",
+            "properties": {
+                "school-state": {
+                    "type": "str",
+                    "enum": [
+                        "ACT",
+                        "NSW",
+                        "NT",
+                        "QLD",
+                        "SA",
+                        "TAS",
+                        "VIC",
+                        "WA",
+                        "Other"
+                    ]
+                },
+                "school-city": {
+                    "type": "str"
+                },
+                "university": {
+                    "type": "str"
+                }
+            }
+        }
+    },
+    "$ref": "Interview"
+}
