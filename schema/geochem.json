@@ -1,0 +1,54 @@
+{
+  "namespace": "geochem-core",
+  "constants": {
+  },
+  "types": {
+    "BaseSample": {
+      "super-types": ["Class"],
+      "additional-members": {
+        "photologs": "Array(Photolog)", # unclear what this is for
+        "timestamp": "faims-core::DateTime", # unclear what this is for
+        "map-geometries": "Array(MapGeometry)", # unclear what this is for
+        "notes": "faims-core::String",
+        "photos": "Array(faims-attach::Photo)",
+        "sketches": "Array(faims-attach::Sketch)",
+        "gis": "GIS",
+        "id": "BaseID",
+        "station_deposit": "StationDeposit",
+        "project": "Project",
+        "area": "Area",
+        "location_number": "LocationNumber",
+      }
+    },
+    "GIS": {
+        <SRID><opts><opt>28349</opt><opt>28350</opt><opt>28351</opt><opt>28352</opt><opt>28353</opt><opt>28354</opt><opt>28355</opt><opt>28356</opt></opts></SRID> <gps/> <Elevation_Metres_above_Sea_Level b="decimal"> Elevation (Metres above Sea Level) </Elevation_Metres_above_Sea_Level>
+
+    },
+    "BaseID":{
+        <Sample_Prefix_1 f="readonly" i="Project/Start/Sample_Prefix_1"/>
+        <Sample_Prefix_2 f="readonly" i="Project/Start/Sample_Prefix_2"/>
+        <Sample_ID f="readonly"/>
+    },
+    "StationDeposit":{
+    },
+    "Project":{
+    },
+    "Area":{
+    },
+    "LocationNumber": {
+    },
+
+    "SoilID": {
+      "super-types": ["baseid"],
+      "additional-members": {
+        "suffix" :
+        <Suffix>
+          <opts>
+            <opt>A</opt>
+            <opt>B</opt>
+          </opts>
+        </Suffix>
+      }
+    }
+  }
+}

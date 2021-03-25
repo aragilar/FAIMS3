@@ -1,0 +1,77 @@
+SoilID
+
+<Soil_Crust_Sample>
+  Soil (Crust) Sample
+  <fmt>{{Sample_Prefix_1}}-{{Sample_Prefix_2}}-{{Sample_ID}}{{Suffix if $0 then "-$0"}}-{{Timestamp}}</fmt>
+  <Basic_Info>
+    <Depth b="decimal">
+      Depth (m)
+    </Depth>
+    <Colour/>
+    <Lag t="radio">
+      <!--@SOURCE: vocabs/boolean.xml-->
+    </Lag>
+    <Soil_Texture t="checkbox">
+      <!--@SOURCE: vocabs/soil-adjective.xml-->
+    </Soil_Texture>
+    <Geology>
+      <!--@SOURCE: vocabs/ology.xml-->
+    </Geology>
+    <Drainage t="radio">
+      <!--@SOURCE: vocabs/boolean.xml-->
+    </Drainage>
+    <Contamination t="radio">
+      <!--@SOURCE: vocabs/boolean.xml-->
+    </Contamination>
+    <Regolith_Type>
+      <opts>
+        <opt>Transported Regolith
+          <opt>Alluvial sediments
+            <opt>Channel deposits</opt>
+            <opt>Overbank deposits</opt>
+          </opt>
+          <opt>Aeolian sediments
+            <opt>Aeolian sand</opt>
+            <opt>Loess</opt>
+            <opt>Parna</opt>
+          </opt>
+          <opt>Colluvial sediments
+            <opt>Mass movement</opt>
+            <opt>Sheet flow deposit</opt>
+            <opt>Fanglomerate</opt>
+          </opt>
+          <opt>Evaporite
+            <opt>Halite</opt>
+            <opt>Gypsum</opt>
+          </opt>
+          <opt>Lacustrine sediments</opt>
+          <opt>Glacial sediments</opt>
+          <opt>Volcanic sediments
+            <opt>Tephra</opt>
+          </opt>
+          <opt>Fill</opt>
+          <opt>Coastal sediments
+            <opt>Beach sediments</opt>
+            <opt>Estuarine sediments</opt>
+            <opt>Coral</opt>
+            <opt>Marine sediments</opt>
+          </opt>
+        </opt>
+        <opt>In-Situ Regolith
+          <opt>Weathered bedrock</opt>
+          <opt>Residual material</opt>
+          <opt>Saprolite
+            <opt>Completely weathered bedrock</opt>
+            <opt>Very highly weathered bedrock</opt>
+            <opt>Highly weathered bedrock</opt>
+            <opt>Moderately weathered bedrock</opt>
+            <opt>Slightly weathered bedrock</opt>
+          </opt>
+        </opt>
+        <opt>Other</opt>
+      </opts>
+    </Regolith_Type>
+    <!--@SOURCE: vocabs/landform.xml-->
+    <Vegetation/>
+  </Basic_Info>
+</Soil_Crust_Sample>

@@ -1,0 +1,122 @@
+
+"ID": {
+  "super-types": ["baseid"],
+  "additional-members": {
+    "suffix" :
+    <suffix>
+      <opts>
+        <opt>ak</opt>
+        <opt>an</opt>
+        <opt>cb</opt>
+        <opt>ct</opt>
+      </opts>
+    </suffix>
+  }
+}
+
+<Water_Sample>
+  <fmt>{{Sample_Prefix_1}}-{{Sample_Prefix_2}}-{{Sample_ID}}{{Suffix if $0 then "-$0"}}-{{Timestamp}}</fmt>
+  <Basic_Info>
+    <Site_Name/>
+    <Water_Table/>
+    <Sample_Depth>
+      Sample Depth (m)
+    </Sample_Depth>
+    <Bottom_Of_Hole/>
+    <Samples_Collected t="checkbox">
+      <opts>
+        <opt>Cations</opt>
+        <opt>Anions</opt>
+        <opt>Alkalinity</opt>
+        <opt>Carbon (1L)</opt>
+      </opts>
+    </Samples_Collected>
+  </Basic_Info>
+  <Codes>
+    <Hole_Type>
+      <opts>
+        <opt>Still Bore (Bailed)</opt>
+        <opt>Still Well (Bailed)</opt>
+        <opt>Flowing Bore</opt>
+        <opt>Flowing Well</opt>
+        <opt>Other</opt>
+      </opts>
+    </Hole_Type>
+    <Hole_Lining>
+      <opts>
+        <opt>Metal</opt>
+        <opt>Rusty</opt>
+        <opt>Poly pipe/plastic</opt>
+        <opt>Cement</opt>
+        <opt>Wood</opt>
+        <opt>Dirt</opt>
+        <opt>Other</opt>
+      </opts>
+    </Hole_Lining>
+    <Hole_Open_Closed t="radio">
+      Hole Open/Closed
+      <opts>
+        <opt>No Observation</opt>
+        <opt>Open/uncovered</opt>
+        <opt>Closed/covered</opt>
+      </opts>
+    </Hole_Open_Closed>
+    <Pipes_In_Hole>
+      <opts>
+        <opt>Metal Pipes</opt>
+        <opt>Poly Pipes</opt>
+        <opt>Fibreglass Pipes</opt>
+        <opt>No pipes/clear</opt>
+        <opt>Other</opt>
+      </opts>
+    </Pipes_In_Hole>
+    <cols>
+      <Hole_Angle>
+        <opts>
+          <opt>Vertical</opt>
+          <opt>Angled</opt>
+          <opt>Other</opt>
+        </opts>
+      </Hole_Angle>
+      <Estimated_Angle b="decimal"/>
+    </cols>
+    <Outflow_Present t="radio">
+      <!--@SOURCE: vocabs/boolean.xml-->
+    </Outflow_Present>
+    <Sampling_Issues>
+      <opts>
+        <opt>Sampled from outflow of tank</opt>
+        <opt>Bailed from a flowing windmill (access issues, no wind etc.)</opt>
+        <opt>Pumped</opt>
+        <opt>Other</opt>
+      </opts>
+    </Sampling_Issues>
+  </Codes>
+  <pH_Eh>
+    pH/Eh
+    <cols>
+      <Temperature  f="notnull" b="decimal"/>
+      <Conductivity f="notnull" b="decimal"/>
+    </cols>
+    <cols>
+      <col>
+        <Preferred_pH f="readonly"/>
+        <Preferred_pH_Time f="nodata readonly"/>
+        <addNewpHText t="webview" f="nolabel">
+          <markdown>pH</markdown>
+        </addNewpHText>
+      </col>
+      <col>
+        <Preferred_Eh f="readonly"/>
+        <Preferred_Eh_Time f="nodata readonly"/>
+        <addNewEhText t="webview" f="nolabel">
+          <markdown>Eh (mV)</markdown>
+        </addNewEhText>
+      </col>
+    </cols>
+  </pH_Eh>
+  <Hidden f="hidden nowire">
+    <Preferred_pH_Time/>
+    <Preferred_Eh_Time/>
+  </Hidden>
+</Water_Sample>

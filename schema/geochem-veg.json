@@ -1,0 +1,12 @@
+
+<Vegetation_Sample>
+    <Vegetation_Species/>
+    <cols>
+      <Vegetation_Height b="decimal"/>
+      <Vegetation_Width  b="decimal"/>
+    </cols>
+    <Soil_Description t="checkbox">
+      <!--@SOURCE: vocabs/soil-adjective.xml-->
+    </Soil_Description>
+    <!--@SOURCE: vocabs/landform.xml-->
+</Vegetation_Sample>

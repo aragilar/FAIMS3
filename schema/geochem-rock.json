@@ -1,0 +1,74 @@
+
+<Rock_Sample>
+  <fmt>{{Sample_Prefix_1}}-{{Sample_Prefix_2}}-{{Sample_ID}}-{{Timestamp}}</fmt>
+  <Basic_Info>
+    <!--@SOURCE: vocabs/observation-type.xml-->
+    <Core_ID/>
+  </Basic_Info>
+  <Measurements>
+    <cols>
+      <col>
+        <Bedding_Strike   b="decimal"/>
+        <Cleavage_Strike  b="decimal"/>
+        <Foliation_Strike b="decimal"/>
+        <Veins_1_Strike   b="decimal"/>
+        <Veins_2_Strike   b="decimal"/>
+      </col>
+      <col>
+        <Bedding_Dip   b="decimal"/>
+        <Cleavage_Dip  b="decimal"/>
+        <Foliation_Dip b="decimal"/>
+        <Veins_1_Dip   b="decimal"/>
+        <Veins_2_Dip   b="decimal"/>
+      </col>
+    </cols>
+    <Other_Structural_Measurements/>
+    <cols>
+      <col>
+        <Fold_Axis_Plunge            b="decimal"/>
+        <Mineral_Lineation_Plunge    b="decimal"/>
+        <Stretching_Lineation_Plunge b="decimal"/>
+      </col>
+      <col>
+        <Fold_Axis_Azimuth            b="decimal"/>
+        <Mineral_Lineation_Azimuth    b="decimal"/>
+        <Stretching_Lineation_Azimuth b="decimal"/>
+      </col>
+    </cols>
+    <Other_Lineation/>
+  </Measurements>
+  <Lithological_Info>
+    <Lithology>
+      <!--@SOURCE: vocabs/ology.xml-->
+    </Lithology>
+    <Inclusion_Size>
+      <opts>
+        <opt>Fine</opt>
+        <opt>Medium</opt>
+        <opt>Coarse</opt>
+        <opt>Other</opt>
+      </opts>
+    </Inclusion_Size>
+    <Grain_Size>
+      <opts>
+        <opt>Fine</opt>
+        <opt>Medium</opt>
+        <opt>Coarse</opt>
+        <opt>Other</opt>
+      </opts>
+    </Grain_Size>
+    <Sorting>
+      <opts>
+        <opt>Poor</opt>
+        <opt>Moderate</opt>
+        <opt>Well Sorted</opt>
+        <opt>Other</opt>
+      </opts>
+    </Sorting>
+    <Other_Lithological_Descriptors/>
+    <Stratigraphic_Unit/>
+    <Large-Scale_Structure/>
+    <Alteration/>
+    <Veining/>
+  </Lithological_Info>
+</Rock_Sample>
