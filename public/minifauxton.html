@@ -346,14 +346,12 @@ input[type="text"]:focus, textarea:focus {
     content: 'Sync target';
 }
         </style>
-        <script src="http://cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
+        <script src="minifauxton_files/pouchdb.js"></script>
         <script>
             var MAX_WIDTH=600;
             var MAX_HEIGHT=1200;
             function action_add(event) {
-                event.preventDefault();
                 new DBView(event.srcElement.db_name.value);
-                return false;
             }
             function getPins() {
                 var pins = null;
