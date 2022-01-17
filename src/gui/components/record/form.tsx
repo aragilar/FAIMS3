@@ -326,9 +326,7 @@ class RecordForm extends React.Component<
 
   componentWillUnmount() {
     for (const timeout_id of this.timeouts) {
-      clearTimeout(
-        (timeout_id as unknown) as Parameters<typeof clearTimeout>[0]
-      );
+      clearTimeout(timeout_id as unknown as Parameters<typeof clearTimeout>[0]);
     }
     this.draftState.stop();
   }
@@ -350,10 +348,8 @@ class RecordForm extends React.Component<
     const database_data = fromdb.data ?? {};
     const database_annotations = fromdb.annotations ?? {};
 
-    const [
-      staged_data,
-      staged_annotations,
-    ] = await this.draftState.getInitialValues();
+    const [staged_data, staged_annotations] =
+      await this.draftState.getInitialValues();
     console.debug('Staged values', staged_data, staged_annotations);
 
     const fields = getFieldsForViewSet(
@@ -675,9 +671,8 @@ class RecordForm extends React.Component<
         ui_specification,
         viewsetName
       );
-      const view_index = ui_specification.viewsets[viewsetName].views.indexOf(
-        viewName
-      );
+      const view_index =
+        ui_specification.viewsets[viewsetName].views.indexOf(viewName);
       const is_final_view =
         view_index + 1 === ui_specification.viewsets[viewsetName].views.length;
       // this expression checks if we have the last element in the viewset array

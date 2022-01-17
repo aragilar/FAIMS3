@@ -35,9 +35,10 @@ export function resolve_project_id(
   return cleaned_listing_id + '||' + nonunique_id;
 }
 
-export function split_full_project_id(
-  full_proj_id: ProjectID
-): {listing_id: ListingID; project_id: NonUniqueProjectID} {
+export function split_full_project_id(full_proj_id: ProjectID): {
+  listing_id: ListingID;
+  project_id: NonUniqueProjectID;
+} {
   const splitid = full_proj_id.split('||');
   if (
     splitid.length !== 2 ||

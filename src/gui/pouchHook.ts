@@ -189,7 +189,7 @@ export function constantArgsShared<FirstArgs extends unknown[]>(
 export function useEventedPromise<A extends Array<unknown>, V>(
   startGetting: (...args: A) => Promise<V>,
   startListening: (
-    trigger_callback: () => void,
+    trigger_callback: (...args: any) => void,
     error_callback: (error: {}) => void
   ) => void | (() => void), //<- Destructor to detach
   stopAtError: boolean,
@@ -211,19 +211,18 @@ export function useEventedPromise<A extends Array<unknown>, V>(
    */
   const triggerCount = useRef(0);
 
-  const promise_value_callback = (thisValuesTriggerCount: number) => (
-    new_value: V
-  ) => {
-    // Don't do anything if we stopped for an error
-    if (state.error !== undefined && stopAtError) {
-      return;
-    }
-    // Discard the result if another promise has started later
-    // than the current receiving one did start
-    if (triggerCount.current === thisValuesTriggerCount) {
-      setState(new PromiseState({value: new_value}));
-    }
-  };
+  const promise_value_callback =
+    (thisValuesTriggerCount: number) => (new_value: V) => {
+      // Don't do anything if we stopped for an error
+      if (state.error !== undefined && stopAtError) {
+        return;
+      }
+      // Discard the result if another promise has started later
+      // than the current receiving one did start
+      if (triggerCount.current === thisValuesTriggerCount) {
+        setState(new PromiseState({value: new_value}));
+      }
+    };
 
   const set_error = (new_error: {}) => {
     // Don't do anything if we stopped for an error
@@ -233,28 +232,26 @@ export function useEventedPromise<A extends Array<unknown>, V>(
     setState(new PromiseState({error: new_error}));
   };
 
-  const promise_error_callback = (
-    thisValuesTriggerCount: number
-  ) => (new_error: {}) => {
-    // Discard the result if another promise has started later
-    // than the current receiving one did start
-    // UNLESS we stopAtError, which is the first error only.
-    if (
-      triggerCount.current === thisValuesTriggerCount ||
-      (state.error === undefined && stopAtError)
-    ) {
-      set_error(new_error);
-    }
-  };
+  const promise_error_callback =
+    (thisValuesTriggerCount: number) => (new_error: {}) => {
+      // Discard the result if another promise has started later
+      // than the current receiving one did start
+      // UNLESS we stopAtError, which is the first error only.
+      if (
+        triggerCount.current === thisValuesTriggerCount ||
+        (state.error === undefined && stopAtError)
+      ) {
+        set_error(new_error);
+      }
+    };
 
-  const start_waiting_safe = () => {
+  const start_waiting_safe = (...waiter_args: any[]) => {
+    console.debug('start_waiting_safe args', waiter_args);
     // Don't do anything if we stopped for an error
     if (state.error !== undefined && stopAtError) {
       return;
     }
-    setState(
-      new PromiseState<V, A>({loading: args})
-    );
+    setState(new PromiseState<V, A>({loading: args}));
     triggerCount.current += 1;
     try {
       startGetting(...args).then(
@@ -262,6 +259,7 @@ export function useEventedPromise<A extends Array<unknown>, V>(
         promise_error_callback(triggerCount.current)
       );
     } catch (err: any) {
+      console.debug('useEventedPromise start_waiting_safe error', err);
       promise_value_callback(triggerCount.current)(err);
     }
   };

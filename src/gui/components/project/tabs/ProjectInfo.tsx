@@ -45,13 +45,8 @@ type ProjectInfoProps = {
 };
 
 export default function ProjectInfoTab(props: ProjectInfoProps) {
-  const {
-    projectvalue,
-    setProjectValue,
-    project_id,
-    formProps,
-    ...others
-  } = props;
+  const {projectvalue, setProjectValue, project_id, formProps, ...others} =
+    props;
   const [infotabvalue, setinfotabvalue] = useState(0);
   const [uiSpec_general, setUISpecG] = useState<ProjectUIModel>({
     fields: {},
@@ -179,15 +174,14 @@ export default function ProjectInfoTab(props: ProjectInfoProps) {
           Add New Meta Component
         </Grid>
         <Grid item sm={4} xs={12}>
-          {getfields(
-            getprojectform(projectvalue, 'projectmetaadd')
-          ).map((fieldName: string) =>
-            getComponentFromField(
-              getprojectform(projectvalue, 'projectmetaadd'),
-              fieldName,
-              formProps,
-              (event: any) => setMetaAdded(event.target.value)
-            )
+          {getfields(getprojectform(projectvalue, 'projectmetaadd')).map(
+            (fieldName: string) =>
+              getComponentFromField(
+                getprojectform(projectvalue, 'projectmetaadd'),
+                fieldName,
+                formProps,
+                (event: any) => setMetaAdded(event.target.value)
+              )
           )}
         </Grid>
         <Grid item sm={2} xs={12}>
@@ -216,15 +210,14 @@ export default function ProjectInfoTab(props: ProjectInfoProps) {
         </Grid>
         <Grid item sm={6} xs={12}>
           {isready(uiSpec_meta) &&
-            uiSpec_meta['views']['start-view'][
-              'fields'
-            ].map((fieldName: string) =>
-              getComponentFromField(
-                uiSpec_meta,
-                fieldName,
-                formProps,
-                handleChangeFormProjectMeta
-              )
+            uiSpec_meta['views']['start-view']['fields'].map(
+              (fieldName: string) =>
+                getComponentFromField(
+                  uiSpec_meta,
+                  fieldName,
+                  formProps,
+                  handleChangeFormProjectMeta
+                )
             )}
         </Grid>
         <Grid item sm={6} xs={12}>
@@ -332,15 +325,14 @@ export default function ProjectInfoTab(props: ProjectInfoProps) {
   const AttachmentTab = () => {
     return (
       <Grid>
-        {getfields(
-          getprojectform(projectvalue, 'attachments')
-        ).map((fieldName: string) =>
-          getComponentFromField(
-            getprojectform(projectvalue, 'attachments'),
-            fieldName,
-            formProps,
-            () => console.log('pass')
-          )
+        {getfields(getprojectform(projectvalue, 'attachments')).map(
+          (fieldName: string) =>
+            getComponentFromField(
+              getprojectform(projectvalue, 'attachments'),
+              fieldName,
+              formProps,
+              () => console.log('pass')
+            )
         )}
         <br />
       </Grid>
